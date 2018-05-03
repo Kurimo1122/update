@@ -3,9 +3,11 @@
 # ===============================
 spring:
   datasource:
+#    driver-class-name: net.sf.log4jdbc.DriverSpy
     url: jdbc:mysql://localhost:3306/update_db
     username: root
     password:
+
 
 # ===============================
 # = JPA configurations
@@ -13,7 +15,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     database-platform: MYSQL
     properties:
       hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
@@ -23,6 +25,8 @@ spring:
 # ===============================
 logging:
   level:
+#    jdbc: OFF
+#      sqltiming: DEBUG
     root: WARN
     com.memorynotfound: DEBUG
     org.springframework.web: INFO

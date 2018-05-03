@@ -80,6 +80,17 @@
             <version>1.9.3</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.lazyluke</groupId>
+            <artifactId>log4jdbc-remix</artifactId>
+            <version>0.2.7</version>
+        </dependency>
+
         <!-- mysql connector -->
         <dependency>
             <groupId>mysql</groupId>
