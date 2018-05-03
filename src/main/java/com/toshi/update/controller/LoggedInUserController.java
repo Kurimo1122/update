@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoggedInUserController {
 
-    @GetMapping(path = "/loginForm")
-    String loginForm(){
-        return "loginForm";
-    }
+//    @GetMapping(path = "/loginForm")
+//    String loginForm(){
+//        return "loginForm";
+//    }
 
-//    @Autowired
-//    private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 //
 //    @ModelAttribute("loggedInUser")
 //    public void secure(Model model) {
@@ -30,13 +30,15 @@ public class LoggedInUserController {
 //        model.addAttribute("loggedInUser", user);
 //    }
 //
-//    @GetMapping("/secure/user")
-//    public String securePage(Model model) {
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        User user = userRepository.findByEmail(auth.getName());
-//        model.addAttribute("loggedInUser", user);
-//        return "secure/user";
-//    }
+    @GetMapping("/secure/user")
+    public String securePage(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("------hey-----");
+        System.out.println(auth.getName());
+        User user = userRepository.findByEmail(auth.getName());
+        model.addAttribute("loggedInUser", user);
+        return "secure/user";
+    }
 //
 //    /** If we can't find a user/email combination */
 //    @RequestMapping("/login-error")
