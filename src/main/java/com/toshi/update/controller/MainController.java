@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 
 @Controller
 public class MainController {
@@ -20,8 +22,15 @@ public class MainController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepository.findByEmail(auth.getName());
         model.addAttribute("loggedInUser", user);
+
         boolean usernotloggedin = userNotLoggedIn();
         model.addAttribute("usernotloggedin", usernotloggedin);
+
+        List<User> users = userRepository.findAll();
+
+        System.out.println(users);
+
+        model.addAttribute("users", users);
         return "index";
     }
 
