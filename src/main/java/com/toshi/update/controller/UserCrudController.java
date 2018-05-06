@@ -51,11 +51,13 @@ public class UserCrudController {
         return "users/edit";
     }
 
-    @PutMapping("{id}")
-    public String update(@PathVariable Long id, @ModelAttribute User user){
-        user.setId(id);
+    @PostMapping("{id}")
+//    @RequestMapping(value={"{id}"}, method={RequestMethod.POST,RequestMethod.PUT})
+//    public String update(@PathVariable Long id, @ModelAttribute User user){
+      public String update(@ModelAttribute User user){
         userCrudService.save(user);
-        return "redirect:/users";
+//        return String.format("redirect:/users/%s", user.getId());
+        return "redirect:/secure/user";
     }
 
     @DeleteMapping("{id}")
