@@ -1,11 +1,27 @@
-h1 {
-    color: #78ab46;
+.fakeimg {
+    height: 200px;
+    background: #aaa;
 }
 
-.error-message {
-    color: #a94442;
+.title-red{
+    color: red;
+    font-size: 56px;
 }
 
-.error-message:first-letter {
-    text-transform: capitalize;
+.top-cover{
+    background-color: #fff;
+}
+
+.top-sub-title{
+    font-size: 24px;
+    font-color: black;
+}
+
+.login-wrapper-height{
+    height: 600px;
+    background-color: #f5f5f5;
+}
+
+.login-form{
+    background-color: #f5f5f5;
 }

@@ -4,7 +4,7 @@
 spring:
   datasource:
 #    driver-class-name: net.sf.log4jdbc.DriverSpy
-    url: jdbc:mysql://localhost:3306/update_db
+    url: jdbc:mysql://localhost:3306/update2_db
     username: root
     password:
 
@@ -31,3 +31,4 @@ logging:
     com.memorynotfound: DEBUG
     org.springframework.web: INFO
     org.springframework.security: INFO
+
