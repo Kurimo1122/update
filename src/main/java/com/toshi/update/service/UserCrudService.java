@@ -3,11 +3,14 @@ package com.toshi.update.service;
 import com.toshi.update.model.User;
 import com.toshi.update.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
+
+@Service
 public class UserCrudService {
 
     @Autowired
