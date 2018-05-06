@@ -27,10 +27,8 @@ public class MainController {
         model.addAttribute("usernotloggedin", usernotloggedin);
 
         List<User> users = userRepository.findAll();
-
-        System.out.println(users);
-
         model.addAttribute("users", users);
+
         return "index";
     }
 
@@ -44,7 +42,7 @@ public class MainController {
         return "user/index";
     }
 
-    public boolean userNotLoggedIn(){
+    public static boolean userNotLoggedIn(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(auth.getPrincipal() == "anonymousUser"){
             return true;

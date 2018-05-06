@@ -1,7 +1,7 @@
 .fakeimg {
-    height: 200px;
-    background: #aaa;
-}
+     height: 200px;
+     background: #aaa;
+ }
 
 .title-red{
     color: red;
@@ -24,4 +24,22 @@
 
 .login-form{
     background-color: #f5f5f5;
+}
+
+.btn-group{
+    margin: 0 auto;
+}
+
+.each-btn{
+    margin: 0 5px;
+    border-radius: 3px !important;
+}
+
+.card-body{
+
+}
+
+.card-body h5{
+    text-align: center;
+    font-size: 24px;
 }
