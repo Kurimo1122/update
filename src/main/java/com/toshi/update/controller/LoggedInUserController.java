@@ -33,7 +33,6 @@ public class LoggedInUserController {
     @GetMapping("/secure/user")
     public String securePage(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println("------hey-----");
         System.out.println(auth.getName());
         User user = userRepository.findByEmail(auth.getName());
         model.addAttribute("loggedInUser", user);

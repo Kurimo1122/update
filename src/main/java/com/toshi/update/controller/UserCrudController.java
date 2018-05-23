@@ -61,9 +61,6 @@ public class UserCrudController {
         model.addAttribute("user", user);
         boolean usernotloggedin = MainController.userNotLoggedIn();
         model.addAttribute("usernotloggedin", usernotloggedin);
-
-
-
         return "users/edit";
     }
 
