@@ -1,6 +1,7 @@
 package com.toshi.update.controller;
 
 
+import com.toshi.update.dto.UserRegistrationDto;
 import com.toshi.update.model.User;
 import com.toshi.update.repository.UserRepository;
 import com.toshi.update.service.UserCrudService;
@@ -10,15 +11,20 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import com.toshi.update.controller.MainController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
 @RequestMapping("/users")
 public class UserCrudController {
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private UserRepository userRepository;
@@ -35,8 +41,20 @@ public class UserCrudController {
 
 
     @GetMapping("new")
-    public String newUser(Model model){
-        return "users/new";
+    public String newUser(@ModelAttribute("user") @Valid UserRegistrationDto userDto,
+                          BindingResult result){
+
+        User existing = userService.findByEmail(userDto.getEmail());
+        if (existing != null){
+            result.rejectValue("email", null, "There is already an account registered with that email");
+        }
+
+        if (result.hasErrors()){
+            return "registration";
+        }
+        userService.save(userDto);
+//        return "redirect:/registration?success";
+        return "/";
     }
 
     @PostMapping
